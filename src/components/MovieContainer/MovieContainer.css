@@ -1,0 +1,10 @@
+section {
+  background-color: #999999;
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  flex-grow: 1;
+  gap: 12px;
+  /* height: 200px;
+  width: 500px; */
+}

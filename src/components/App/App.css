@@ -1,3 +1,14 @@
 .App {
+  display:flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+h1 {
   text-align: center;
+}
+header {
+  background-color: slateblue;
+  flex-grow: 0;
+  height: 100px;
 }
