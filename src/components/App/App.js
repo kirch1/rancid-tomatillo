@@ -1,15 +1,26 @@
 import './App.css';
+import React, {Component} from 'react';
+import MovieContainer from '../MovieContainer/MovieContainer';
+import movieData from '../testData';
 
-function App() {
-  return (
-    <main className="App">
-      <header>
-        <h1>Expired Avocados</h1>
-      </header>
-      {/* <MovieContainer /> */}
-      {/* <FilterForm />*/}
-    </main>
-  );
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = movieData
+  }
+  
+  render() {
+    return (
+      <main className="App">
+        <header>
+          <h1>Expired Avocados</h1>
+        </header>
+        <MovieContainer movies = {this.state.movies}/>
+        {/* <FilterForm />*/}
+      </main>
+    );
+  }
 }
 
 export default App;
