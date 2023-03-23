@@ -1,4 +1,18 @@
 .movieCard {
-  height: 50px;
-  width: 35px;
+  background-color: rgba(240, 248, 255, 0.537);
+  border: 1px solid black;
+  display:flex;
+  flex-direction: column;
+  width: 150px;
+  padding: 5px;
+}
+img {
+  max-width: 150px;
+}
+h2 {
+  margin:0;
+}
+
+.movieCard:hover {
+  background-color: rgba(219, 235, 250, 0.96)
 }

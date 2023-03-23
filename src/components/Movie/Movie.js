@@ -1,12 +1,12 @@
+import './Movie.css'
 
-
-const Movie = () => {
-
+const Movie = ({movieDetails}) => {
+  console.log(movieDetails);
   return (
-    <div className ="movieCard">
-      <img src="https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg"/>
-      <h2>Title</h2>
-      <span>Rating?</span>
+    <div className ="movieCard" id ={movieDetails.id}>
+      <img src={movieDetails['poster_path']}/>
+      <h2>{movieDetails.title}</h2>
+      <span>{movieDetails['average_rating'].toFixed(1)}</span>
     </div>
   )
 }
