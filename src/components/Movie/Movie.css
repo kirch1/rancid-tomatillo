@@ -1,18 +1,39 @@
 .movieCard {
-  background-color: rgba(240, 248, 255, 0.537);
-  border: 1px solid black;
-  display:flex;
-  flex-direction: column;
-  width: 150px;
-  padding: 5px;
-}
-img {
-  max-width: 150px;
-}
-h2 {
-  margin:0;
+  background-color: rgba(245, 245, 245, 0.8);
+  backdrop-filter: blur(6px);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+  max-width: 280px;
+  width: 27vh;
+  flex-shrink: 0;
+  transition: all .8s ease;
+  cursor: pointer;
 }
 
 .movieCard:hover {
-  background-color: rgba(219, 235, 250, 0.96)
+  transform: scale(1.05);
+}
+
+img {
+  max-width: 100%;
+}
+
+.movieFooter {
+  display: flex;
+  flex-shrink: 0;
+  height: 38px;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+h2 {
+  margin:0;
+  font-size: 16px;
+}
+
+span {
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
 }

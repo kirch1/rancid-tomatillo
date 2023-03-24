@@ -1,0 +1,32 @@
+section {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 26px;
+  margin: 30px;
+  padding: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 60px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #82b46e;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(245, 245, 245, 0.6);
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(245, 245, 245, 0.8);
+}
