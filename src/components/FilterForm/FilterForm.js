@@ -10,9 +10,10 @@ class FilterForm extends Component {
     return (
       <footer>
         <form>
-          <input>
-          
+          <input type='text'
+                 placeholder='Title Search'>
           </input>
+          <button>Clear All</button>
         </form>
       </footer>
     )

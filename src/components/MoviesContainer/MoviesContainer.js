@@ -1,7 +1,7 @@
 import Movie from '../Movie/Movie'
-import './MovieContainer.css'
+import './MoviesContainer.css'
 
-const MovieContainer = (props) => {
+const MoviesContainer = (props) => {
   console.log('ln 5 moviecontainer', props.movies)
   const movies = props.movies.map(movie => {
     return (
@@ -16,4 +16,4 @@ const MovieContainer = (props) => {
   )
 }
 
-export default MovieContainer;
+export default MoviesContainer;

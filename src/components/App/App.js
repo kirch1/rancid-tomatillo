@@ -1,6 +1,6 @@
 import './App.css';
 import React, {Component} from 'react';
-import MovieContainer from '../MovieContainer/MovieContainer';
+import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import FilterForm from '../FilterForm/FilterForm'
 import movieData from '../testData';
 
@@ -17,7 +17,7 @@ class App extends Component {
         <header>
           <h1>Expired Avocados</h1>
         </header>
-        <MovieContainer movies = {this.state.movies}/>
+        <MoviesContainer movies = {this.state.movies}/>
         <FilterForm />
       </main>
     );
