@@ -6,9 +6,12 @@
 }
 h1 {
   text-align: center;
+  color: #CFA576;
+  text-shadow: 2px 3px #63492B;
 }
 header {
-  background-color: slateblue;
+  background-color: #63492bb8;
   flex-grow: 0;
   height: 100px;
+  border-bottom: 4px solid rgba(148, 136, 230, 0.601);
 }

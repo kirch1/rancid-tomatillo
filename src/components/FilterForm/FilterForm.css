@@ -1,9 +1,13 @@
 footer {
   display:flex;
-  background-color: rgba(108, 33, 108, 0.463);
+  background-color: #63492bb8;
   height: 60px;
   flex-grow: 0;
   align-items: center;
   justify-content: center;
+  border-top: 3px solid #8ACF98;
 }
 
+input {
+  border-radius: 3px;
+}

@@ -10,7 +10,7 @@ class FilterForm extends Component {
     return (
       <footer>
         <form>
-          <input>
+          <input placeholder = 'Search...'>
           
           </input>
         </form>

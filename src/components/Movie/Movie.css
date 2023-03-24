@@ -1,18 +1,38 @@
-.movieCard {
-  background-color: rgba(240, 248, 255, 0.537);
-  border: 1px solid black;
-  display:flex;
-  flex-direction: column;
-  width: 150px;
-  padding: 5px;
-}
 img {
   max-width: 150px;
 }
+
 h2 {
   margin:0;
 }
 
+.movieCard {
+  display:flex;
+  align-items: center;
+  background-color: rgba(240, 248, 255, 0.537);
+  border: 1px solid black;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  opacity: .85;
+  flex-direction: column;
+  width: 150px;
+  padding: 5px;
+}
+
 .movieCard:hover {
-  background-color: rgba(219, 235, 250, 0.96)
+  background-color: rgba(219, 235, 250, 0.96);
+  opacity: .95;
+  animation: lift 4s linear;
+}
+
+@keyframes lift {
+  0% {
+    transform: scale(1 , 1);
+  }
+  50% {
+    transform: scale(1.05, 1.05);
+  }
+  100% {
+    transform: scale(1.06, 1.06);
+  }
 }
