@@ -2,10 +2,9 @@ import './App.css';
 import React, {Component} from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import FilterForm from '../FilterForm/FilterForm'
-// import movieData from '../testData';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import logo from '../../assets/avocado.svg';
-import {fetchAllMovies, fetchMovieDetails} from '../../apiCalls';
+import {fetchAllMovies} from '../../apiCalls';
 
 class App extends Component {
   constructor() {
@@ -17,10 +16,7 @@ class App extends Component {
   }
   componentDidMount() {
     fetchAllMovies()
-      .then(data => {
-      this.setState({allMovies: data.movies})
-      console.log(this.state.allMovies)
-      })
+      .then(data => this.setState({allMovies: data.movies}))
       .catch(error => console.log(error))
   }
 
@@ -35,7 +31,7 @@ class App extends Component {
           <img src={logo} className='headerLogo'/>
           <h1>expired avocados</h1>
         </header>
-        {this.state.selectedMovie ? <MovieDetails selectMovie={this.selectMovie}/> : <MoviesContainer movies={this.state.allMovies} selectMovie={this.selectMovie}/> }
+        {this.state.selectedMovie ? <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/> : <MoviesContainer movies={this.state.allMovies} selectMovie={this.selectMovie}/> }
         {!this.state.selectedMovie && <FilterForm />}
       </main>
     );
