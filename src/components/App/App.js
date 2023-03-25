@@ -9,7 +9,10 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 class App extends Component {
   constructor() {
     super();
-    this.state = movieData
+    this.state = {
+      allMovies: movieData,
+      selectedMovie: 0
+    };
   }
   
   render() {
@@ -18,8 +21,7 @@ class App extends Component {
         <header>
           <h1>Expired Avocados</h1>
         </header>
-        <MovieDetails />
-        {/* <MoviesContainer movies = {this.state.movies}/> */}
+        {this.state.selectedMovie ? <MovieDetails /> : <MoviesContainer movies = {this.state.allMovies.movies}/> }
         <FilterForm />
       </main>
     );

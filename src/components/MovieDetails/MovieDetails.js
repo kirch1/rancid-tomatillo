@@ -15,8 +15,8 @@ class MovieDetails extends Component {
   render() {
     return(
       <section>
-        <img src={this.state['poster_path']}/>
-        <div className="moreInfo">
+        <img className='detailCover' src={this.state['poster_path']}/>
+        <div className='moreInfo'>
           <p>{this.state.overview}</p>
           <p>{this.state['average_rating']}</p>
           <p>{this.state.genres[0]}</p>
