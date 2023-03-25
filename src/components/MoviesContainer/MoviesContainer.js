@@ -9,9 +9,11 @@ const MoviesContainer = (props) => {
   })
 
   return (
-    <section>
-      {movies}
-    </section>
+    <div className='moviesContainerMain'>
+      <section className='moviesContainer'>
+        {movies}
+      </section>
+    </div>
   )
 }
 

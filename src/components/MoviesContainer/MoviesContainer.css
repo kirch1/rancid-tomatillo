@@ -1,32 +1,39 @@
-section {
+.moviesContainerMain {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.moviesContainer {
   display: flex;
   align-items: center;
   justify-content: start;
   overflow-x: auto;
   overflow-y: hidden;
   gap: 26px;
-  margin: 30px;
-  padding: 16px;
+  margin: 40px;
+  padding-bottom: 16px;
+  padding-top: 16px;
 }
 
-::-webkit-scrollbar {
+.moviesContainer::-webkit-scrollbar {
   width: 60px;
   cursor: pointer;
 }
 
-::-webkit-scrollbar-track {
-  background-color: #82b46e;
+.moviesContainer::-webkit-scrollbar-track {
+  background-color: #95b05d;
   border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #594640;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: rgba(245, 245, 245, 0.6);
+.moviesContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(245, 245, 245, 0.8);
   border-radius: 20px;
   border: 1px solid transparent;
   background-clip: content-box;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(245, 245, 245, 0.8);
+.moviesContainer::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(245, 245, 245, 0.6);
 }
