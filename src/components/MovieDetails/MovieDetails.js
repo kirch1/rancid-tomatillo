@@ -15,9 +15,12 @@ class MovieDetails extends Component {
   render() {
     return(
       <section>
-        <img className='detailCover' src={this.state['poster_path']}/>
+        <div>
+          <button onClick={() => this.props.selectMovie(0)}>&times;</button>
+          <img className='detailCover' src={this.state['poster_path']} alt={this.state.title}/>
+        </div>
         <div className='moreInfo'>
-          <p>{this.state.overview}</p>
+          <p>{this.state.title}</p>
           <p>{this.state['average_rating']}</p>
           <p>{this.state.genres[0]}</p>
           <p>{this.state.tagline}</p>

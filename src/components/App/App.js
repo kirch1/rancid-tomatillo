@@ -14,6 +14,10 @@ class App extends Component {
       selectedMovie: 0
     };
   }
+
+  selectMovie = id => {
+    this.setState({selectedMovie: id});
+  }
   
   render() {
     return (
@@ -21,7 +25,7 @@ class App extends Component {
         <header>
           <h1>Expired Avocados</h1>
         </header>
-        {this.state.selectedMovie ? <MovieDetails /> : <MoviesContainer movies = {this.state.allMovies.movies}/> }
+        {this.state.selectedMovie ? <MovieDetails selectMovie={this.selectMovie}/> : <MoviesContainer movies={this.state.allMovies.movies} selectMovie={this.selectMovie}/> }
         <FilterForm />
       </main>
     );
