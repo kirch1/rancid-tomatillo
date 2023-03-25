@@ -1,9 +1,12 @@
 import './Movie.css'
 
-const Movie = ({movieDetails}) => {
+const Movie = ({movieDetails, selectMovie}) => {
+  
   return (
-    <div className="movieCard" id={movieDetails.id}>
-      <img src={movieDetails['poster_path']}/>
+    <div onClick={() => selectMovie(movieDetails.id)} 
+         className="movieCard"
+         id={movieDetails.id}>
+      <img src={movieDetails['poster_path']} alt={movieDetails.title}/>
       <div className='movieFooter'>
         <h2>{movieDetails.title}</h2>
         <span>{movieDetails['average_rating'].toFixed(1)} 🥑</span>

@@ -1,0 +1,13 @@
+section {
+  display: flex;
+  gap: 26px;
+  margin: 30px;
+}
+
+.detailCover {
+  max-width: 200px;
+}
+
+.moreInfo {
+  
+}

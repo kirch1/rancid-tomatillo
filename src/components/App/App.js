@@ -3,12 +3,20 @@ import React, {Component} from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import FilterForm from '../FilterForm/FilterForm'
 import movieData from '../testData';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
 
 class App extends Component {
   constructor() {
     super();
-    this.state = movieData
+    this.state = {
+      allMovies: movieData,
+      selectedMovie: 0
+    };
+  }
+
+  selectMovie = id => {
+    this.setState({selectedMovie: id});
   }
   
   render() {
@@ -17,7 +25,7 @@ class App extends Component {
         <header>
           <h1>Expired Avocados</h1>
         </header>
-        <MoviesContainer movies = {this.state.movies}/>
+        {this.state.selectedMovie ? <MovieDetails selectMovie={this.selectMovie}/> : <MoviesContainer movies={this.state.allMovies.movies} selectMovie={this.selectMovie}/> }
         <FilterForm />
       </main>
     );
