@@ -1,13 +1,33 @@
-section {
+.movieDetailsMain {
   display: flex;
-  gap: 26px;
-  margin: 30px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  flex-grow: 1;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.detailsHeader {
+  display: flex;
+  justify-content: flex-start;
+  height: 24px;
+}
+
+.movieDetailsContent {
+  display: flex;
+  gap: 20px;  
 }
 
 .detailCover {
-  max-width: 200px;
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .moreInfo {
-  
+  background-color: rgba(245, 245, 245, 0.8);
+  overflow: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

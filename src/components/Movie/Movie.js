@@ -1,4 +1,4 @@
-import './Movie.css'
+import './Movie.css';
 
 const Movie = ({movieDetails, selectMovie}) => {
   
