@@ -1,15 +1,17 @@
 import { Component } from "react";
-import testDetails from "../testDetails";
+import { fetchMovieDetails } from "../../apiCalls";
 import './MovieDetails.css'
 
 class MovieDetails extends Component {
   constructor() {
     super();
-    this.state = testDetails.movie;
+    this.state = {};
   }
 
   componentDidMount() {
-    console.log('details mounted');
+    fetchMovieDetails(this.props.selectedMovieId)
+      .then(data => this.setState(data.movie))
+      .catch()
   }
 
   render() {
@@ -25,7 +27,7 @@ class MovieDetails extends Component {
             <h3>{this.state.title}</h3>
             <p>Average Rating: {this.state['average_rating']}  🥑</p>
             <p>Release Date: {this.state['release_date']}</p>
-            <p>Genre: {this.state.genres[0]}</p>
+            <p>Genre: {this.state.genres}</p>
             <p>Budget: {USDollar.format(this.state.budget)}</p>
             <p>Revenue: {USDollar.format(this.state.revenue)}</p>
             <p>Runtime: {this.state.runtime} minutes</p>
