@@ -42,6 +42,16 @@ class App extends Component {
       this.setState({filteredFilms: []})
     }
   }
+
+  getMainComponent() {
+    if(this.state.selectedMovie) {
+      return <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/>
+    }
+    if(this.state.errorMessage ) {
+      return <p>{this.state.errorMessage}</p>
+    }
+    return <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
+  }
   
   render() {
     return (
@@ -50,10 +60,7 @@ class App extends Component {
           <img src={logo} className='headerLogo'/>
           <h1>expired avocados</h1>
         </header>
-        {this.state.selectedMovie ?
-          <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/> :
-          this.state.errorMessage ? <p>{this.state.errorMessage}</p>: <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
-        }
+        {this.getMainComponent()}
         {!this.state.selectedMovie && <FilterForm filterMovies={this.filterMovies}/>}
       </main>
     );
