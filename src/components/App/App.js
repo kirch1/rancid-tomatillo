@@ -52,8 +52,7 @@ class App extends Component {
         </header>
         {this.state.selectedMovie ?
           <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/> :
-          
-          this.state.errorMessage ? <p>GET REKT NERD</p>: <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
+          this.state.errorMessage ? <p>{this.state.errorMessage}</p>: <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
         }
         {!this.state.selectedMovie && <FilterForm filterMovies={this.filterMovies}/>}
       </main>
