@@ -9,7 +9,7 @@ const Movie = ({movieDetails, selectMovie}) => {
       <img src={movieDetails['poster_path']} alt={movieDetails.title}/>
       <div className='movieFooter'>
         <h2>{movieDetails.title}</h2>
-        <span>{movieDetails['average_rating'].toFixed(1)} 🥑</span>
+        <span className='movieRating'>{movieDetails['average_rating'].toFixed(1)} 🥑</span>
       </div>
     </div>
   )

@@ -2,35 +2,114 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 16px;
+  gap: 10px;
   flex-grow: 1;
-  padding: 8vw;
+  padding: 4vh 6vw ;
   overflow: auto;
 }
 
-.detailsHeader {
-  display: flex;
-  justify-content: flex-start;
-  height: 24px;
+.detailsButton {
+  align-self: flex-start;
+  flex-shrink: 0;
+  height: 28px;
 }
 
 .movieDetailsContent {
   display: flex;
-  gap: 30px;
+  gap: 24px;
 }
 
 .detailCover {
-  max-height: 400px;
-  height: 60vh;
+  max-height: 480px;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .moreInfo {
-  max-height: 400px;
-  height: 60vh;
-  background-color: rgba(245, 245, 245, 0.8);
+  flex-grow: 1;
+  max-height: 480px;
+  min-width: 220px;
+  background-color: rgba(245, 245, 245, 0.7);
   overflow: auto;
   padding-left: 20px;
   padding-right: 20px;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
+
+@media only screen and (max-width: 800px) {
+  .detailCover {
+    flex-grow: 1;
+    max-height: 360px;
+  }
+  .moreInfo {
+    max-height: 360px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .movieDetailsMain {
+    justify-content: flex-start;
+  }
+
+  .movieDetailsContent {
+    flex-direction: column;
+  }
+
+  .detailCover {
+    flex-grow: 1;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+  }
+
+  .moreInfo {
+    flex-grow: 1;
+  }
+}
+
+.infoFlex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-basis: 500px;
+}
+
+.infoFlex h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.dataTitle {
+  font-size: 14px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.dataPoint {
+  font-size: 16px;
+  margin-top: 2px;
+  margin-bottom: 12px;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+  margin-bottom: 12px;
+}
+
+.dataGenre {
+  background-color: #5946404b;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 2px 8px 2px 8px;
+}
+
+.ripeMeter {
+  margin-bottom: -110px;
+}
+
+
