@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       allMovies: [],
       filteredFilms: [],
-      selectedMovie: 0
+      selectedMovie: 0,
+      errorMessage: ''
     };
   }
 
@@ -28,9 +29,15 @@ class App extends Component {
 
   filterMovies = (filters) => {
     if(filters.title) {
-      this.setState({
-        filteredFilms: this.state.allMovies.filter(movie => movie.title.includes(filters.title))
-      })
+      var preFiltered = this.state.allMovies.filter(movie => movie.title.includes(filters.title));
+      if(preFiltered.length) {
+        this.setState({
+          filteredFilms: preFiltered,
+          errorMessage: ''
+        })
+      }else {
+        this.setState({errorMessage: 'No Search Result'})
+      }
     }else {
       this.setState({filteredFilms: []})
     }
@@ -45,7 +52,8 @@ class App extends Component {
         </header>
         {this.state.selectedMovie ?
           <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/> :
-          <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
+          
+          this.state.errorMessage ? <p>GET REKT NERD</p>: <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
         }
         {!this.state.selectedMovie && <FilterForm filterMovies={this.filterMovies}/>}
       </main>
