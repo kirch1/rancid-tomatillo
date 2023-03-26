@@ -15,8 +15,6 @@ class FilterForm extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.state)
-    console.log('prevState: ', prevState)
     if(prevState !== this.state) {
       this.props.filterMovies(this.state)
     }

@@ -20,7 +20,9 @@ class App extends Component {
   componentDidMount() {
     fetchAllMovies()
       .then(data => this.setState({allMovies: data.movies}))
-      .catch(error => console.log(error))
+      .catch(() => {
+        this.setState({errorMessage: 'Network Error'})
+      })
   }
 
   selectMovie = id => {
@@ -36,7 +38,7 @@ class App extends Component {
           errorMessage: ''
         })
       }else {
-        this.setState({errorMessage: 'No Search Result'})
+        this.setState({errorMessage: 'No Search Results'})
       }
     }else {
       this.setState({filteredFilms: []})
@@ -47,9 +49,15 @@ class App extends Component {
     if(this.state.selectedMovie) {
       return <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/>
     }
-    if(this.state.errorMessage ) {
-      return <p>{this.state.errorMessage}</p>
+
+    if(this.state.errorMessage === 'Network Error') {
+      return <p className='errorMessage'>Network issues are the pits!</p>
     }
+
+    if(this.state.errorMessage) {
+      return <p className='errorMessage'>{this.state.errorMessage}</p>
+    }
+
     return <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
   }
   

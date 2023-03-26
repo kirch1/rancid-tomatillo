@@ -38,3 +38,11 @@ h1 {
   font-size: 50px;
   margin: 0;
 }
+
+.errorMessage {
+  color: #594640;
+  font-family: 'Fifties Movies';
+  text-align: center;
+  font-size: 4pc;
+  margin: 20px;
+}

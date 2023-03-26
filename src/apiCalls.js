@@ -1,6 +1,12 @@
 const fetchAllMovies = () => {
   return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then((res) => res.json())
+    .then((res) => {
+      console.log(res)
+      if(!res.ok) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    })
 }
 
 const fetchMovieDetails = (id) => {
