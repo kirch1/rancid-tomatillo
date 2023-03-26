@@ -11,9 +11,11 @@ class App extends Component {
     super();
     this.state = {
       allMovies: [],
+      filteredFilms: [],
       selectedMovie: 0
     };
   }
+
   componentDidMount() {
     fetchAllMovies()
       .then(data => this.setState({allMovies: data.movies}))
@@ -23,6 +25,16 @@ class App extends Component {
   selectMovie = id => {
     this.setState({selectedMovie: id});
   }
+
+  filterMovies = (filters) => {
+    if(filters.title) {
+      this.setState({
+        filteredFilms: this.state.allMovies.filter(movie => movie.title.includes(filters.title))
+      })
+    }else {
+      this.setState({filteredFilms: []})
+    }
+  }
   
   render() {
     return (
@@ -31,8 +43,11 @@ class App extends Component {
           <img src={logo} className='headerLogo'/>
           <h1>expired avocados</h1>
         </header>
-        {this.state.selectedMovie ? <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/> : <MoviesContainer movies={this.state.allMovies} selectMovie={this.selectMovie}/> }
-        {!this.state.selectedMovie && <FilterForm />}
+        {this.state.selectedMovie ?
+          <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/> :
+          <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
+        }
+        {!this.state.selectedMovie && <FilterForm filterMovies={this.filterMovies}/>}
       </main>
     );
   }
