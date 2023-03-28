@@ -40,9 +40,13 @@ h1 {
 }
 
 .errorMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #594640;
   font-family: 'Fifties Movies';
   text-align: center;
-  font-size: 4pc;
-  margin: 20px;
+  font-size: 3pc;
+  height: 100%;
+  margin: 0;
 }
