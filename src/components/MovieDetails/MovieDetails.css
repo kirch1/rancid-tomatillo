@@ -45,7 +45,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 580px) {
   .movieDetailsMain {
     justify-content: flex-start;
   }
@@ -62,7 +62,7 @@
   }
 
   .moreInfo {
-    flex-grow: 1;
+    max-height: none;
   }
 }
 

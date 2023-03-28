@@ -5,7 +5,7 @@ class FilterForm extends Component {
   constructor() {
     super();
     this.state = {
-      title: '',
+      title: ''
     }
   }
 
@@ -16,21 +16,27 @@ class FilterForm extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(prevState !== this.state) {
-      this.props.filterMovies(this.state)
+      this.props.filterMovies(this.state);
     }
+  }
+
+  clearFilters = (event) => {
+    event.preventDefault();
+    this.setState({title: ''});
   }
 
   render() {
     return (
       <footer>
-        <form>
+        <form onSubmit={e => { e.preventDefault(); }}>
           <input type='text'
                  name='title'
                  placeholder='Title Search'
                  value={this.state.title}
+                 onKeyDown={event => event.key === 'Enter' && event.preventDefault()}
                  onChange={event => this.handleChange(event)}>
           </input>
-          <button>Clear All</button>
+          <button onClick={event => this.clearFilters(event)}>Clear All</button>
         </form>
       </footer>
     )

@@ -41,24 +41,29 @@ class App extends Component {
         this.setState({errorMessage: 'No Search Results'})
       }
     }else {
+      this.setState({errorMessage: ''})
       this.setState({filteredFilms: []})
     }
   }
 
+  setError(message) {
+    this.setState({errorMessage: message})
+  }
+
   getMainComponent() {
     if(this.state.selectedMovie) {
-      return <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/>
+      return <MovieDetails selectMovie={this.selectMovie} 
+                           selectedMovieId = {this.state.selectedMovie}
+                           setError={this.setError}/>
     }
-
     if(this.state.errorMessage === 'Network Error') {
       return <p className='errorMessage'>Network issues are the pits!</p>
     }
-
     if(this.state.errorMessage) {
       return <p className='errorMessage'>{this.state.errorMessage}</p>
     }
-
-    return <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} selectMovie={this.selectMovie}/> 
+    return <MoviesContainer movies={this.state.filteredFilms.length ? this.state.filteredFilms : this.state.allMovies} 
+                            selectMovie={this.selectMovie}/> 
   }
   
   render() {
