@@ -2,12 +2,14 @@
 // allMovies, filteredFilms, selectedMovie, or errorMessage state of App will dictate content
 
 // Changes upon form change and switching to movieDetails view, so the user flows to and from each view will need to be tested.
+import multipleStub from "../fixtures/manyMoviesStub"
 
 
 describe('User dashboard - User flow, view switching, and error display', () => {
   let testVisit = () => cy.visit('http://localhost:3000')
 
   beforeEach(()=> {
+    cy.intercept({method: 'GET', url:'https://rancid-tomatillos.herokuapp.com/api/v2/movies'}, multipleStub)
     testVisit()
   })
 
@@ -44,9 +46,27 @@ describe('User dashboard - User flow, view switching, and error display', () => 
   }
   )
 
-  it('', () => {
-  }
-  )
+  // it('User should be able to click any of the movie tiles in order to see further details about them', () => {
+
+  //   cy.get('#436270')
+  //   .click()
+  //   cy.get('.movieDetailsMain')
+  //   .should('exist')
+  //   .get('.movieDetailsContent')
+  //   .should('exist').should('be.visible')
+
+  //   cy.get('.detailsButton')
+  //   .click()
+
+  //   cy.get('#505642')
+  //   .click()
+
+  //   cy.get('.movieDetailsMain')
+  //   .should('exist')
+  //   .get('.movieDetailsContent')
+  //   .should('exist').should('be.visible')
+  // }
+  // )
 
   it('', () => {
   }

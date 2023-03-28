@@ -1,11 +1,15 @@
-// This test file will be relevant to the user flows that involve the filtering form that we have at the bottom of our page. This form should enable a user to refine their browsing, and should be visible until a user interacts with a movie card and switches their view to see further specific details about one film.
+// This test file will be relevant to the user flows that involve the filtering form that we have at the bottom of our page. This form should enable a user to refine their browsing, and should be visible until a user interacts with a movie card and switches their view to see further specific details about  that one film.
 
 // This form should become hidden in that detailed view, and return alongside the dashboard view upon returning to it.
+
+import multipleStub from "../fixtures/manyMoviesStub"
+
 
 describe('Filter Form - User flow and error handling', () => {
   let testVisit = () => cy.visit('http://localhost:3000')
 
   beforeEach(()=> {
+    cy.intercept({method: 'GET', url:'https://rancid-tomatillos.herokuapp.com/api/v2/movies'}, multipleStub)
     testVisit()
   })
 
