@@ -36,6 +36,8 @@ describe('User dashboard - User flow, view switching, and error display', () => 
     .should('exist')
     .get('#436270')
     .should('exist').should('be.visible')
+    .find('img')
+    .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
     .get('#724495')
     .should('exist').should('be.visible')
     .get('#1013860')
@@ -43,30 +45,12 @@ describe('User dashboard - User flow, view switching, and error display', () => 
     .get('#505642')
     .should('exist').should('be.visible')
 
+  //   cy.get('.movieCard')
+  //   .first()
+    // .find('img')
+  //   .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
   }
   )
-
-  // it('User should be able to click any of the movie tiles in order to see further details about them', () => {
-
-  //   cy.get('#436270')
-  //   .click()
-  //   cy.get('.movieDetailsMain')
-  //   .should('exist')
-  //   .get('.movieDetailsContent')
-  //   .should('exist').should('be.visible')
-
-  //   cy.get('.detailsButton')
-  //   .click()
-
-  //   cy.get('#505642')
-  //   .click()
-
-  //   cy.get('.movieDetailsMain')
-  //   .should('exist')
-  //   .get('.movieDetailsContent')
-  //   .should('exist').should('be.visible')
-  // }
-  // )
 
   it('', () => {
   }

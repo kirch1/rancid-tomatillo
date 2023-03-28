@@ -18,10 +18,10 @@ describe('Filter Form - User flow and error handling', () => {
   cy.get('form')
   .should('exist')
   .should('be.visible')
-  .should('have.value', '')
 
   cy.get('input[placeholder="Title Search"]')
   .should('exist')
+  .should('have.value', '')
 
   // Router URL check here, once we get to that part of refactoring
   })
@@ -33,8 +33,6 @@ describe('Filter Form - User flow and error handling', () => {
     .should('have.value', 'W')
     .type('{backspace}')
     .should('have.value', '')
-
-    cy.get('input[name="title"]')
     .type('B')
     .should('have.value', 'B')
     .type('l')
