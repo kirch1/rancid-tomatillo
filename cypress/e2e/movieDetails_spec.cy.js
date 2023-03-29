@@ -38,7 +38,7 @@ describe('Movie Details View - User flow and error handling', () => {
       cy.get('.movieDetailsMain')
       .should('exist').should('be.visible')
 
-    cy.get('.detailsButton')
+    cy.get('.homeButton')
     .click()
       cy.get('.moviesContainerMain')
       .should('exist').should('be.visible')
@@ -54,7 +54,7 @@ describe('Movie Details View - User flow and error handling', () => {
       cy.get('.moviesContainerMain')
       .should('not.exist')
 
-    cy.get('.detailsButton')
+    cy.get('.homeButton')
     .click()
       cy.get('.movieDetailsMain')
       .should('not.exist')

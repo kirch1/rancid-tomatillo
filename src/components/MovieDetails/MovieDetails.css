@@ -8,12 +8,6 @@
   overflow: auto;
 }
 
-.detailsButton {
-  align-self: flex-start;
-  flex-shrink: 0;
-  height: 28px;
-}
-
 .movieDetailsContent {
   display: flex;
   gap: 24px;
@@ -100,7 +94,7 @@
 }
 
 .dataGenre {
-  background-color: #5946404b;
+  background-color: #59464024;
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;

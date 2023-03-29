@@ -1,32 +1,34 @@
 import { Component } from 'react';
-import { fetchMovieDetails } from '../../apiCalls';
+import { fetchMovieDetails, fetchMovieVideos } from '../../apiCalls';
 import ReactSpeedometer from 'react-d3-speedometer'
 import './MovieDetails.css'
-
+import {Redirect} from 'react-router-dom';
 class MovieDetails extends Component {
   constructor() {
     super();
     this.state = {
       details: {},
+      videos: [],
       errorMessage: ''
     };
   }
 
   componentDidMount() {
-    fetchMovieDetails(this.props.selectedMovieId)
-      .then(data => this.setState({details: data.movie}))
-      .catch(() => {
-        this.setState({errorMessage: 'AvocadOh No! Cant Find Movie Details'})
-      })
+    Promise.all([fetchMovieDetails(this.props.selectedMovieId), fetchMovieVideos(this.props.selectedMovieId)])
+        .then(data => {
+          console.log(data[1].videos)
+          this.setState({details: data[0].movie})
+        })
+        .catch(() => this.setState({errorMessage: 'Details Error'}))
   }
 
   render() {
     const USDollar = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0});
+    if(this.state.errorMessage){
+      return <Redirect to='/error'/>
+    }
     return(
       <section className='movieDetailsMain'>
-        <button className='detailsButton' onClick={() => this.props.selectMovie(0)}>&larr; Return</button>
-        {this.state.errorMessage ? 
-        <p className='errorMessage'>{this.state.errorMessage}</p> : 
         <div className='movieDetailsContent'>
           <img className='detailCover' src={this.state.details['poster_path']} alt={this.state.details.title}/>
           <div className='moreInfo'>
@@ -76,7 +78,7 @@ class MovieDetails extends Component {
             </div>
             <p className='overviewText'>{this.state.details.overview}</p>
           </div>
-        </div>}
+        </div>
       </section>
     )
   }

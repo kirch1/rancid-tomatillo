@@ -1,4 +1,10 @@
+.movieLink {
+  text-decoration: none;
+  color: black;
+}
+
 .movieCard {
+  text-decoration: none;
   background-color: rgba(245, 245, 245, 0.8);
   backdrop-filter: blur(6px);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
@@ -41,4 +47,3 @@
   font-weight: bold;
   white-space: nowrap;
 }
-
