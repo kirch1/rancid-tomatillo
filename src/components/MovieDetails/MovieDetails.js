@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { fetchMovieDetails } from '../../apiCalls';
 import ReactSpeedometer from 'react-d3-speedometer'
 import './MovieDetails.css'
+import {Link} from "react-router-dom";
+
 
 class MovieDetails extends Component {
   constructor() {
@@ -24,7 +26,9 @@ class MovieDetails extends Component {
     const USDollar = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0});
     return(
       <section className='movieDetailsMain'>
-        <button className='detailsButton' onClick={() => this.props.selectMovie(0)}>&larr; Return</button>
+        <Link to="/">
+        <button className='detailsButton'>&larr; Return</button>
+        </Link>
         {this.state.errorMessage ? 
         <p className='errorMessage'>{this.state.errorMessage}</p> : 
         <div className='movieDetailsContent'>

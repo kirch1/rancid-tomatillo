@@ -1,9 +1,15 @@
 import './Movie.css';
+import {Link, useHistory} from "react-router-dom";
+
 
 const Movie = ({movieDetails, selectMovie}) => {
-  
+  const history = useHistory()
+  const movieSelect = () => {
+    selectMovie(movieDetails.id)
+    history.push('/details')
+  }
   return (
-    <div onClick={() => selectMovie(movieDetails.id)} 
+    <div onClick={movieSelect}
          className="movieCard"
          id={movieDetails.id}>
       <img src={movieDetails['poster_path']} alt={movieDetails.title}/>
@@ -12,6 +18,7 @@ const Movie = ({movieDetails, selectMovie}) => {
         <span className='movieRating'>{movieDetails['average_rating'].toFixed(1)} 🥑</span>
       </div>
     </div>
+
   )
 }
 
