@@ -1,15 +1,14 @@
 import './App.css';
 import React, {Component} from 'react';
+import Header from '../Header/Header';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import FilterForm from '../FilterForm/FilterForm'
 import MovieDetails from '../MovieDetails/MovieDetails';
-import logo from '../../assets/avocado.svg';
 import {fetchAllMovies} from '../../apiCalls';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 class App extends Component {
@@ -74,11 +73,8 @@ class App extends Component {
   render() {
     return (
       <main className="App">
-        <header>
-          <img src={logo} className='headerLogo'/>
-          <h1>expired avocados</h1>
-        </header>
         <Router>
+          <Header />
           <Switch>
             <Route path="/details">
               <MovieDetails selectMovie={this.selectMovie} selectedMovieId = {this.state.selectedMovie}/>

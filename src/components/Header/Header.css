@@ -1,0 +1,29 @@
+@import url('https://fonts.cdnfonts.com/css/fifties-movies');
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.headerLogo {
+  width: 60px;
+  margin-right: 12px;
+}
+
+h1 {
+  color: #539320;
+  font-family: 'Fifties Movies';
+  text-align: center;
+  font-weight: normal;
+  font-size: 50px;
+  margin: 0;
+}
+
+.homeButton {
+  height: 28px;
+}

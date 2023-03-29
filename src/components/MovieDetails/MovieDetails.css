@@ -8,12 +8,6 @@
   overflow: auto;
 }
 
-.detailsButton {
-  align-self: flex-start;
-  flex-shrink: 0;
-  height: 28px;
-}
-
 .movieDetailsContent {
   display: flex;
   gap: 24px;
