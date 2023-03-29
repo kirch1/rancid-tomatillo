@@ -1,24 +1,17 @@
 import './Movie.css';
-import {Link, useHistory} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
-
-const Movie = ({movieDetails, selectMovie}) => {
-  const history = useHistory()
-  const movieSelect = () => {
-    selectMovie(movieDetails.id)
-    history.push('/details')
-  }
+const Movie = ({movieDetails}) => {
   return (
-    <div onClick={movieSelect}
-         className="movieCard"
-         id={movieDetails.id}>
-      <img src={movieDetails['poster_path']} alt={movieDetails.title}/>
-      <div className='movieFooter'>
-        <h2>{movieDetails.title}</h2>
-        <span className='movieRating'>{movieDetails['average_rating'].toFixed(1)} 🥑</span>
+    <NavLink to={'movies/' + movieDetails.id} className='movieLink'>
+      <div className="movieCard" id={movieDetails.id}>
+        <img src={movieDetails['poster_path']} alt={movieDetails.title}/>
+        <div className='movieFooter'>
+          <h2>{movieDetails.title}</h2>
+          <span className='movieRating'>{movieDetails['average_rating']} 🥑</span>
+        </div>
       </div>
-    </div>
-
+    </NavLink>
   )
 }
 
