@@ -27,11 +27,14 @@ class App extends Component {
   }
 
   filterMovies = (filters) => {
+    let output = this.state.allMovies;
     if(filters.title) {
-      this.setState({displayedMovies: this.state.allMovies.filter(movie => movie.title.includes(filters.title))});
-    }else {
-      this.setState({displayedMovies: this.state.allMovies});
+      output = output.filter(movie => movie.title.includes(filters.title));
     }
+    if(filters.ripeness[0] > 0 || filters.ripeness[1] < 10) {
+      output = output.filter(movie => movie.average_rating >= filters.ripeness[0] && movie.average_rating <= filters.ripeness[1]);
+    } 
+    this.setState({displayedMovies: output});
   }
   
   render() {

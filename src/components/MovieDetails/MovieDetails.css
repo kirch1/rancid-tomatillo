@@ -6,7 +6,6 @@
   flex-grow: 1;
   padding: 4vh 6vw ;
   overflow: auto;
-  /* background-image: url("https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg"); */
   background-size: cover;
   background-position: center;
 }
@@ -22,8 +21,8 @@
 }
 
 .moreInfo {
-  background-color: rgba(245, 245, 245, 0.5);
-  backdrop-filter: blur(8px);
+  background-color: #e1e6d7c0;
+  backdrop-filter: blur(6px);
   flex-grow: 1;
   max-height: 480px;
   min-width: 220px;
@@ -51,6 +50,8 @@
 .moreInfo::-webkit-scrollbar-thumb:hover {
   background-color: #396416;
 }
+
+
 
 @media only screen and (max-width: 800px) {
   .detailCover {

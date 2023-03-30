@@ -17,3 +17,8 @@ button {
   padding-right: 16px;
   cursor: pointer;
 }
+
+button:hover {
+  background-color: #93C832;
+  scale: 1.06;
+}
