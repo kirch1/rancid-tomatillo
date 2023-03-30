@@ -6,6 +6,9 @@
   flex-grow: 1;
   padding: 4vh 6vw ;
   overflow: auto;
+  /* background-image: url("https://image.tmdb.org/t/p/original//bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg"); */
+  background-size: cover;
+  background-position: center;
 }
 
 .movieDetailsContent {
@@ -19,14 +22,34 @@
 }
 
 .moreInfo {
+  background-color: rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(8px);
   flex-grow: 1;
   max-height: 480px;
   min-width: 220px;
-  background-color: rgba(245, 245, 245, 0.7);
   overflow: auto;
   padding-left: 20px;
   padding-right: 20px;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.moreInfo::-webkit-scrollbar {
+  width: 20px;
+}
+
+.moreInfo::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.moreInfo::-webkit-scrollbar-thumb {
+  background-color: #539320;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+.moreInfo::-webkit-scrollbar-thumb:hover {
+  background-color: #396416;
 }
 
 @media only screen and (max-width: 800px) {
@@ -102,8 +125,9 @@
   padding: 2px 8px 2px 8px;
 }
 
-.ripeMeter {
-  margin-bottom: -110px;
+.trailer {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 800px;
+  align-self: center;
 }
-
-

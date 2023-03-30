@@ -15,11 +15,10 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     Promise.all([fetchMovieDetails(this.props.selectedMovieId), fetchMovieVideos(this.props.selectedMovieId)])
-        .then(data => {
-          console.log(data[1].videos)
-          this.setState({details: data[0].movie})
-        })
-        .catch(() => this.setState({errorMessage: 'Details Error'}))
+      .then(data => {
+        this.setState({details: data[0].movie, videos: data[1].videos})
+      })
+      .catch(() => this.setState({errorMessage: 'Details Error'}))
   }
 
   render() {
@@ -27,16 +26,18 @@ class MovieDetails extends Component {
     if(this.state.errorMessage){
       return <Redirect to='/error'/>
     }
+
+    const bgImage = {backgroundImage: `linear-gradient(to bottom, #e1e88264 0%, #6a9248 100%),url("${this.state.details.backdrop_path}")`}
     return(
-      <section className='movieDetailsMain'>
+      <section className='movieDetailsMain' style={bgImage}>
         <div className='movieDetailsContent'>
-          <img className='detailCover' src={this.state.details['poster_path']} alt={this.state.details.title}/>
+          <img className='detailCover' src={this.state.details.poster_path} alt={this.state.details.title}/>
           <div className='moreInfo'>
             <div className='infoFlex'>
               <div>
                 <h3>{this.state.details.title}</h3>
                 <p className='dataTitle'>Released</p>
-                <p className='dataPoint'>{this.state.details['release_date']}</p>
+                <p className='dataPoint'>{this.state.details.release_date}</p>
                 <p className='dataTitle'>Genres</p>
                 <div className='genres'>
                   {this.state.details.genres && this.state.details.genres.map(genre => <span className='dataGenre'>{genre} </span>)}
@@ -50,7 +51,7 @@ class MovieDetails extends Component {
               </div>
               <div>
                 <ReactSpeedometer value={this.state.details['average_rating']} 
-                                  currentValueText={`Ripeness: ${this.state.details['average_rating']}`}
+                                  currentValueText={`Ripeness: ${this.state.details.average_rating}`}
                                   maxValue={10}
                                   segments={4}
                                   segmentColors={['#594640', '#93C832', '#93C832', '#539320']}
@@ -77,6 +78,13 @@ class MovieDetails extends Component {
               </div>
             </div>
             <p className='overviewText'>{this.state.details.overview}</p>
+            {this.state.videos.length &&
+            <iframe  className='trailer'
+                     src={"https://www.youtube.com/embed/" + this.state.videos[0].key}
+                     title="YouTube video player" 
+                     frameborder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     allowfullscreen></iframe>}
           </div>
         </div>
       </section>

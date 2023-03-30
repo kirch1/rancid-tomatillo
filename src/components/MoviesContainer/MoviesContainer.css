@@ -24,7 +24,7 @@
 .moviesContainer::-webkit-scrollbar-track {
   background-color: #95b05d;
   border-radius: 20px;
-  border: 1px solid #594640;
+  border: 1px solid #59464050;
 }
 
 .moviesContainer::-webkit-scrollbar-thumb {

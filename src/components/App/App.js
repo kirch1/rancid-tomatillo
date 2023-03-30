@@ -45,12 +45,15 @@ class App extends Component {
           <Route path='/error'>
             <Error errorMessage="Network Errors are the Pits!"/>
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             {this.state.errorMessage ? <Redirect to='/error'/> :
             <>
               <MoviesContainer movies={this.state.displayedMovies} selectMovie={this.selectMovie}/> 
               <FilterForm filterMovies={this.filterMovies}/>
             </>}
+          </Route>
+          <Route>
+            <Redirect to='/error'/>
           </Route>
         </Switch>
       </main>
