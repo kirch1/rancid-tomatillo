@@ -4,21 +4,43 @@ footer {
   flex-shrink: 0;
   border-top: 1px solid #594640;
   background-color: rgba(255, 255, 255, 0.5);
-  padding: 15px;
+  padding: 15px 40px 15px 40px;
 }
 
 form {
   height: 100%;
   display: flex;
   justify-content: center;
-  gap: 18px;
+  align-items: center;
+  gap: 20px;
 }
 
 input {
+  padding: 0;
+  margin: 0;
   padding-left: 6px;
+  height: 30px;
+  margin-left: 20px;
 }
 
-button:hover {
-  background-color: #93C832;
-  scale: 1.06;
+.ripenessParent {
+  display: flex;
+  gap: 12px;
+  height: 100%;
+  align-items: start;
+}
+
+.filterLabel {
+  font-weight: bold;
+  color: #594640;
+  margin: 0;
+  margin-bottom: -5px;
+}
+
+.ripenessFilter {
+  width: 160px;
+}
+
+.clearButton {
+  height: 34px;
 }

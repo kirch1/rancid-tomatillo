@@ -27,11 +27,14 @@ class App extends Component {
   }
 
   filterMovies = (filters) => {
+    let output = this.state.allMovies;
     if(filters.title) {
-      this.setState({displayedMovies: this.state.allMovies.filter(movie => movie.title.includes(filters.title))});
-    }else {
-      this.setState({displayedMovies: this.state.allMovies});
+      output = output.filter(movie => movie.title.includes(filters.title));
     }
+    if(filters.ripeness[0] > 0 || filters.ripeness[1] < 10) {
+      output = output.filter(movie => movie.average_rating >= filters.ripeness[0] && movie.average_rating <= filters.ripeness[1]);
+    } 
+    this.setState({displayedMovies: output});
   }
   
   render() {
@@ -45,12 +48,15 @@ class App extends Component {
           <Route path='/error'>
             <Error errorMessage="Network Errors are the Pits!"/>
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             {this.state.errorMessage ? <Redirect to='/error'/> :
             <>
               <MoviesContainer movies={this.state.displayedMovies} selectMovie={this.selectMovie}/> 
               <FilterForm filterMovies={this.filterMovies}/>
             </>}
+          </Route>
+          <Route>
+            <Redirect to='/error'/>
           </Route>
         </Switch>
       </main>

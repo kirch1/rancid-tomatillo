@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 const Movie = ({movieDetails}) => {
   return (
-    <NavLink to={'movies/' + movieDetails.id} className='movieLink'>
+    <NavLink to={'/movies/' + movieDetails.id} className='movieLink'>
       <div className="movieCard" id={movieDetails.id}>
         <img src={movieDetails['poster_path']} alt={movieDetails.title}/>
         <div className='movieFooter'>
