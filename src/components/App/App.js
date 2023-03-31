@@ -5,7 +5,7 @@ import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import Error from '../../Error/Error';
 import FilterForm from '../FilterForm/FilterForm'
 import MovieDetails from '../MovieDetails/MovieDetails';
-import {fetchAllMovies} from '../../apiCalls';
+import getData from '../../apiCalls';
 import {Switch, Route, Redirect} from "react-router-dom";
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchAllMovies()
+    getData('movies')
       .then(data => this.setState({allMovies: data.movies, displayedMovies: data.movies}))
       .catch(() => {
         this.setState({errorMessage: 'Network Error'})
