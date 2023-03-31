@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { fetchMovieDetails, fetchMovieVideos } from '../../apiCalls';
+import getData from '../../apiCalls';
 import ReactSpeedometer from 'react-d3-speedometer'
 import './MovieDetails.css'
 import {Redirect} from 'react-router-dom';
@@ -14,7 +14,7 @@ class MovieDetails extends Component {
   }
 
   componentDidMount() {
-    Promise.all([fetchMovieDetails(this.props.selectedMovieId), fetchMovieVideos(this.props.selectedMovieId)])
+    Promise.all([getData(`movies/${this.props.selectedMovieId}`), getData(`movies/${this.props.selectedMovieId}/videos`)])
       .then(data => {
         this.setState({details: data[0].movie, videos: data[1].videos});
       })
@@ -34,7 +34,8 @@ class MovieDetails extends Component {
           <div className='moreInfo'>
             <div className='infoFlex'>
               <div>
-                <h3>{this.state.details.title}</h3>
+                <h3 className='dataMovieTitle'>{this.state.details.title}</h3>
+                <p className='tagline'>{this.state.details.tagline}</p>
                 <p className='dataTitle'>Released</p>
                 <p className='dataPoint'>{this.state.details.release_date}</p>
                 <p className='dataTitle'>Genres</p>
@@ -48,7 +49,7 @@ class MovieDetails extends Component {
                 <p className='dataTitle'>Runtime</p>
                 <p className='dataPoint'>{this.state.details.runtime} minutes</p>
               </div>
-              <div>
+              <div className='meterDiv'>
                 <ReactSpeedometer value={this.state.details['average_rating']} 
                                   currentValueText={`Ripeness: ${this.state.details.average_rating}`}
                                   maxValue={10}

@@ -27,6 +27,7 @@ class FilterForm extends Component {
     event.preventDefault();
     this.setState({title: '', ripeness: [1, 10]});
   }
+  
   render() {
     return (
       <footer>

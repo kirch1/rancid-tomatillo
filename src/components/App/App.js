@@ -5,7 +5,7 @@ import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import Error from '../../Error/Error';
 import FilterForm from '../FilterForm/FilterForm'
 import MovieDetails from '../MovieDetails/MovieDetails';
-import {fetchAllMovies} from '../../apiCalls';
+import getData from '../../apiCalls';
 import {Switch, Route, Redirect} from "react-router-dom";
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchAllMovies()
+    getData('movies')
       .then(data => this.setState({allMovies: data.movies, displayedMovies: data.movies}))
       .catch(() => {
         this.setState({errorMessage: 'Network Error'})
@@ -28,13 +28,15 @@ class App extends Component {
 
   filterMovies = (filters) => {
     let output = this.state.allMovies;
-    if(filters.title) {
-      output = output.filter(movie => movie.title.includes(filters.title));
-    }
-    if(filters.ripeness[0] > 0 || filters.ripeness[1] < 10) {
-      output = output.filter(movie => movie.average_rating >= filters.ripeness[0] && movie.average_rating <= filters.ripeness[1]);
-    } 
+    output = output.filter(movie => movie.title.includes(filters.title));
+    output = output.filter(movie => movie.average_rating >= filters.ripeness[0] && movie.average_rating <= filters.ripeness[1]);
     this.setState({displayedMovies: output});
+  }
+
+  resetMovies = () => {
+    if(this.state.displayedMovies !== this.state.allMovies) {
+      this.setState({displayedMovies: this.state.allMovies})
+    }
   }
   
   render() {
@@ -43,7 +45,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/movies/:movieID" render={({match}) => {
-            return <MovieDetails selectMovie={this.selectMovie} selectedMovieId={match.params.movieID}/>
+            return <MovieDetails selectedMovieId={match.params.movieID}/>
           }}/>
           <Route path='/error'>
             <Error errorMessage="Network Errors are the Pits!"/>
@@ -51,7 +53,7 @@ class App extends Component {
           <Route exact path="/">
             {this.state.errorMessage ? <Redirect to='/error'/> :
             <>
-              <MoviesContainer movies={this.state.displayedMovies} selectMovie={this.selectMovie}/> 
+              <MoviesContainer movies={this.state.displayedMovies} resetMovies={this.resetMovies}/> 
               <FilterForm filterMovies={this.filterMovies}/>
             </>}
           </Route>
