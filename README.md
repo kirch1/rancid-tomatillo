@@ -34,7 +34,7 @@ This project was assigned in the first week of module 3 for Front End students a
 ## Contributors:
 [//]: <>
 
-[Jason Kirchman](https://github.com/kirch1)
+[Jason Kirchman](https://github.com/kirch1) \
 [Shane Misra](https://github.com/sdmisra)
 
 
