@@ -10,11 +10,8 @@ Clone down the frontend repo found at:
 
 1. Install dependencies by using ‘npm install’ in your terminal within the root directory.
 
-1. To start backend server, within its directory run 'npm start'.
+3. To host the front-end website on your local machine, run ’npm start’ in terminal.
 
-1. To host the front-end website on your local machine, run ’npm start’ in terminal.
-
-1. Navigate to ‘http://localhost:8080/' in your browser.
 
 ## Testing Instructions:
 [//]: <>
@@ -24,6 +21,7 @@ Run 'npm test' from the terminal while within the main directory of the applicat
 
 ## Preview of App:
 [//]: <>
+
 ![Screenshot]()
 
 
