@@ -36,6 +36,10 @@ class App extends Component {
     } 
     this.setState({displayedMovies: output});
   }
+
+  resetMovies = () => {
+    this.setState({displayedMovies: this.state.allMovies})
+  }
   
   render() {
     return (
@@ -43,7 +47,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/movies/:movieID" render={({match}) => {
-            return <MovieDetails selectMovie={this.selectMovie} selectedMovieId={match.params.movieID}/>
+            return <MovieDetails selectedMovieId={match.params.movieID}/>
           }}/>
           <Route path='/error'>
             <Error errorMessage="Network Errors are the Pits!"/>
@@ -51,7 +55,7 @@ class App extends Component {
           <Route exact path="/">
             {this.state.errorMessage ? <Redirect to='/error'/> :
             <>
-              <MoviesContainer movies={this.state.displayedMovies} selectMovie={this.selectMovie}/> 
+              <MoviesContainer movies={this.state.displayedMovies} resetMovies={this.resetMovies}/> 
               <FilterForm filterMovies={this.filterMovies}/>
             </>}
           </Route>

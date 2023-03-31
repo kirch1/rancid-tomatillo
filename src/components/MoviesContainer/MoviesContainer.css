@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   gap: 26px;
   padding-bottom: 16px;

@@ -1,9 +1,10 @@
 import './Movie.css';
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-const Movie = ({movieDetails}) => {
+const Movie = ({movieDetails, resetMovies}) => {
+
   return (
-    <NavLink to={'/movies/' + movieDetails.id} className='movieLink'>
+    <Link to={'/movies/' + movieDetails.id} className='movieLink' onClick={resetMovies}>
       <div className="movieCard" id={movieDetails.id}>
         <img src={movieDetails['poster_path']} alt={movieDetails.title}/>
         <div className='movieFooter'>
@@ -11,7 +12,7 @@ const Movie = ({movieDetails}) => {
           <span className='movieRating'>{movieDetails['average_rating']} 🥑</span>
         </div>
       </div>
-    </NavLink>
+    </Link>
   )
 }
 
