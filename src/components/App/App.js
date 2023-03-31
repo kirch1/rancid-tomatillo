@@ -38,7 +38,9 @@ class App extends Component {
   }
 
   resetMovies = () => {
-    this.setState({displayedMovies: this.state.allMovies})
+    if(this.state.displayedMovies !== this.state.allMovies) {
+      this.setState({displayedMovies: this.state.allMovies})
+    }
   }
   
   render() {
