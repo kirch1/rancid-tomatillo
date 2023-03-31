@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Expired Avocados
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Abstract:
+[//]: <>
+  
+## Installation Instructions:
+[//]: <>
 
-## Available Scripts
+Clone down the frontend repo found at:
 
-In the project directory, you can run:
+1. Install dependencies by using ‘npm install’ in your terminal within the root directory.
 
-### `npm start`
+1. To start backend server, within its directory run 'npm start'.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. To host the front-end website on your local machine, run ’npm start’ in terminal.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Navigate to ‘http://localhost:8080/' in your browser.
 
-### `npm test`
+## Testing Instructions:
+[//]: <>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the test suite associated with the classes behind the scenes and how they interact: 
+Run 'npm test' from the terminal while within the main directory of the application ().
 
-### `npm run build`
+## Preview of App:
+[//]: <>
+![Screenshot]()
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+If you encounter errors when trying to host the site with webpack: Remember to use ‘npm install’ before trying to host the server on your local machine!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Context:
+[//]: <>
+This project was assigned in the first week of module 3 for Front End students at Turing. The work was completed over the course of the following two weeks.
 
-### `npm run eject`
+## Contributors:
+[//]: <>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[Jason Kirchman](https://github.com/kirch1)
+[Shane Misra](https://github.com/sdmisra)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Learning Goals:
+[//]: <>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Feature Ideas:
+[//]: <>
