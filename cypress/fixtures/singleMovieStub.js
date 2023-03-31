@@ -18,4 +18,21 @@ const singleStub = {
     "average_rating": 4
   }
 }
-export default singleStub;
+
+const emptyStub = {
+  "movie": {
+    "id": 0,
+    "title": "",
+    "poster_path": "",
+    "backdrop_path": "",
+    "release_date": "",
+    "overview": "",
+    "genres": [],
+    "budget": 0,
+    "revenue": 0,
+    "runtime": 0,
+    "tagline": "",
+    "average_rating": 0
+  }
+}
+export {singleStub, emptyStub};

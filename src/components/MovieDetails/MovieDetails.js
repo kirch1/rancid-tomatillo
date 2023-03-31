@@ -48,7 +48,7 @@ class MovieDetails extends Component {
                 <p className='dataTitle'>Runtime</p>
                 <p className='dataPoint'>{this.state.details.runtime} minutes</p>
               </div>
-              <div>
+              <div className = "speedometer">
                 <ReactSpeedometer value={this.state.details['average_rating']} 
                                   currentValueText={`Ripeness: ${this.state.details.average_rating}`}
                                   maxValue={10}
