@@ -1,5 +1,6 @@
 import Error from '../../Error/Error'
 import Movie from '../Movie/Movie'
+import PropTypes from 'prop-types'
 import './MoviesContainer.css'
 
 const MoviesContainer = (props) => {
@@ -18,3 +19,8 @@ const MoviesContainer = (props) => {
 }
 
 export default MoviesContainer;
+
+MoviesContainer.propTypes = {
+  movies: PropTypes.array.isRequired,
+  resetMovies: PropTypes.func.isRequired
+}

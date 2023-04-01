@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './FilterForm.css'
+import PropTypes from 'prop-types'
 
 class FilterForm extends Component {
   constructor() {
@@ -65,3 +66,7 @@ class FilterForm extends Component {
 }
 
 export default FilterForm;
+
+FilterForm.propTypes = {
+  filterMovies: PropTypes.func.isRequired
+}

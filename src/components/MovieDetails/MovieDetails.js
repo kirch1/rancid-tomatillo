@@ -3,6 +3,9 @@ import getData from '../../apiCalls';
 import ReactSpeedometer from 'react-d3-speedometer'
 import './MovieDetails.css'
 import {Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types'
+import Movie from '../Movie/Movie';
+
 class MovieDetails extends Component {
   constructor() {
     super();
@@ -16,6 +19,7 @@ class MovieDetails extends Component {
   componentDidMount() {
     Promise.all([getData(`movies/${this.props.selectedMovieId}`), getData(`movies/${this.props.selectedMovieId}/videos`)])
       .then(data => {
+        // const tidyDeets = mrClean(data[0].movie)
         this.setState({details: data[0].movie, videos: data[1].videos});
       })
       .catch(() => this.setState({errorMessage: 'Details Error'}));
@@ -93,3 +97,7 @@ class MovieDetails extends Component {
 }
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  selectedMovieId: PropTypes.string.isRequired
+}
