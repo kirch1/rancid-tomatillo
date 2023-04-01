@@ -1,5 +1,6 @@
 import './Movie.css';
 import {Link} from "react-router-dom";
+import PropTypes from 'prop-types'
 
 const Movie = ({movieDetails, resetMovies}) => {
 
@@ -9,7 +10,7 @@ const Movie = ({movieDetails, resetMovies}) => {
         <img src={movieDetails['poster_path']} alt={movieDetails.title}/>
         <div className='movieFooter'>
           <h2>{movieDetails.title}</h2>
-          <span className='movieRating'>{movieDetails['average_rating']} 🥑</span>
+          <span className='movieRating'>{movieDetails.average_rating} 🥑</span>
         </div>
       </div>
     </Link>
@@ -17,3 +18,11 @@ const Movie = ({movieDetails, resetMovies}) => {
 }
 
 export default Movie;
+
+Movie.propTypes = {
+  movieDetails: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired
+  })
+}
