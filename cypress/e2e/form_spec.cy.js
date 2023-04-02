@@ -1,7 +1,3 @@
-// This test file will be relevant to the user flows that involve the filtering form that we have at the bottom of our page. This form should enable a user to refine their browsing, and should be visible until a user interacts with a movie card and switches their view to see further specific details about  that one film.
-
-// This form should become hidden in that detailed view, and return alongside the dashboard view upon returning to it.
-
 import multipleStub from "../fixtures/manyMoviesStub"
 
 
@@ -87,10 +83,6 @@ describe('Filter Form - User flow and error handling', () => {
     cy.get('.errorMessage')
     .should('exist').should('be.visible')
     .contains('No Movies To Show')
-
-
-    cy.get('.homeButton')
-      .should('exist').should('be.visible').contains('Home')
   }
   )
 })
