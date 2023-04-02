@@ -65,7 +65,12 @@ describe('Movie Details View - User flow and error handling', () => {
   }
   )
 
-  it('', () => {
+  it('When a user clicks a movie tile, the URL is updated to reflect the unique ID of that title', () => {
+    cy.get('#505642')
+    .click()
+
+    cy.url()
+    .should('include', '/movies/505642')
   }
   )
 })

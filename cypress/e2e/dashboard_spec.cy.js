@@ -7,12 +7,14 @@ import multipleStub from "../fixtures/manyMoviesStub"
 
 describe('User dashboard - User flow, view switching, and error display', () => {
   let testVisit = () => cy.visit('http://localhost:3000')
+  let successResult = () => cy.intercept({method: 'GET', url:'https://rancid-tomatillos.herokuapp.com/api/v2/movies'}, multipleStub)
+  let failResult = 
 
   beforeEach(()=> {
-    cy.intercept({method: 'GET', url:'https://rancid-tomatillos.herokuapp.com/api/v2/movies'}, multipleStub)
+    successResult();
     testVisit()
   })
-
+  
   it('User should be able to visit the page and see title upon arrival', () => {
 
     cy.get('h1')
@@ -27,8 +29,15 @@ describe('User dashboard - User flow, view switching, and error display', () => 
     .should('exist')
     .should('be.visible')
     .should('have.value', '')
-  }
-  )
+  })
+
+  it('User should have rating filter bar (ripeness meter) visible upon arrival', () => {
+
+    cy.get('.ripenessFilter')
+      .should('exist').should('be.visible')
+      .get('.filterLabel')
+      .contains('Ripeness:')
+  })
 
   it('User should see an unfiltered selection of movies upon arrival', () => {
 
@@ -44,19 +53,10 @@ describe('User dashboard - User flow, view switching, and error display', () => 
     .should('exist').should('be.visible')
     .get('#505642')
     .should('exist').should('be.visible')
+  })
 
-  //   cy.get('.movieCard')
-  //   .first()
-    // .find('img')
-  //   .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg')
-  }
-  )
+  it('SAD - User should see an unfiltered selection of movies upon arrival, but there is an error server side', () => {
 
-  it('', () => {
-  }
-  )
-
-  it('', () => {
   }
   )
 

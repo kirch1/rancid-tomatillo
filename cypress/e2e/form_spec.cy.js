@@ -23,7 +23,17 @@ describe('Filter Form - User flow and error handling', () => {
   .should('exist')
   .should('have.value', '')
 
-  // Router URL check here, once we get to that part of refactoring
+  })
+
+  it('Form should feature a "ripeness filter" that enables a user to refine search further based off of rating', () => {
+
+    cy.get('.ripenessParent')
+    .should('exist').should('be.visible')
+    .contains('Ripeness:')
+
+    cy.get('.ripenessFilter')
+    .should('exist')
+    .should('be.visible')
   })
   
   it('Form should allow user to enter letters to filter movies. It should update its own state as the user types', () => {
@@ -64,16 +74,19 @@ describe('Filter Form - User flow and error handling', () => {
   }
   )
 
-  it('', () => {
+  it('SAD - If search returns no results, the user should be presented with an error message to inform them.', () => {
+
+    cy.get('input[name="title"]')
+    .type('W')
+    .should('have.value', 'W')
+    .type('o')
+    .should('have.value', 'Wo')
+    .type('o')
+    .should('have.value', 'Woo')
+
+    cy.get('.errorMessage')
+    .should('exist').should('be.visible')
+    .contains('No Movies To Show')
   }
   )
-
-  it('', () => {
-  }
-  )
-
-  it('', () => {
-  }
-  )
-
 })
