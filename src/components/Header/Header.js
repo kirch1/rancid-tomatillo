@@ -9,7 +9,7 @@ const Header = () => {
     <header>
       {location.pathname !== '/' && <Link to="/"> <button className='homeButton'>Home</button> </Link>}
       <div className="logo">
-        <img src={logo} className='headerLogo'/>
+        <img src={logo} className='headerLogo' alt="header logo"/>
         <h1>expired avocados</h1>
       </div>
       {location.pathname !== '/' && <div className="placeholder"></div>}

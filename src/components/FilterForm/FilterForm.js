@@ -34,13 +34,13 @@ class FilterForm extends Component {
       <footer>
         <form onSubmit={e => { e.preventDefault(); }}>
           <div className='ripenessParent'>
-            <span className='filterLabel'>Ripeness:</span>
+            <span className='filterLabel'>{this.state.ripeness[0].toString().padStart(2, '0')}</span>
             <Slider
               className='ripenessFilter'
               range
               min={1}
               max={10}
-              marks={{1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8,9:9,10:10}}
+              marks={{1:'expired', 10:'ripe'}}
               value={this.state.ripeness}
               onChange={newValue => this.setState({ripeness: newValue})}
               dots
@@ -50,15 +50,18 @@ class FilterForm extends Component {
               activeDotStyle={{backgroundColor:'#539320', borderColor:'transparent'}}
               handleStyle={{backgroundColor:'#539320', borderColor:'#539320'}}
             />
+            <span className='filterLabel'>{this.state.ripeness[1].toString().padStart(2, '0')}</span>
           </div>
-          <input type='text'
-                 name='title'
-                 placeholder='Title Search'
-                 value={this.state.title}
-                 onKeyDown={event => event.key === 'Enter' && event.preventDefault()}
-                 onChange={event => this.handleChange(event)}>
-          </input>
-          <button className='clearButton' onClick={event => this.clearFilters(event)}>Clear All</button>
+          <div className='inputParent'>
+            <input type='text'
+                  name='title'
+                  placeholder='Title Search'
+                  value={this.state.title}
+                  onKeyDown={event => event.key === 'Enter' && event.preventDefault()}
+                  onChange={event => this.handleChange(event)}>
+            </input>
+            <button className='clearButton' onClick={event => this.clearFilters(event)}>Clear</button>
+          </div>
         </form>
       </footer>
     )
