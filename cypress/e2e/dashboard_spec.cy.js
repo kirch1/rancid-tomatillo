@@ -52,10 +52,22 @@ describe('User dashboard - User flow, view switching, and error display', () => 
     .get('#505642')
       .should('exist').should('be.visible')
   })
+})
 
-  it('SAD - User should see an unfiltered selection of movies upon arrival, but there is an error server side', () => {
+describe('User dashboard - error message display', ()=> {
+let testVisit = () => cy.visit('http://localhost:3000')
 
+beforeEach(()=> {
+  cy.intercept({method: 'GET', url:'https://rancid-tomatillos.herokuapp.com/api/v2/movies'}, {})
+  testVisit()
+})
+
+  it('SAD - User arrives to page, network error occurs (fetch returns empty object), error message and return button shown:', () => {
+    cy.get('.errorMessage')
+      .should('exist').should('be.visible').contains('Network Errors are the Pits!')
+
+    cy.get('.homeButton')
+      .should('exist').should('be.visible').contains('Home')
   }
   )
-
 })

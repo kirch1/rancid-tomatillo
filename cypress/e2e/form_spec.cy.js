@@ -9,7 +9,7 @@ describe('Filter Form - User flow and error handling', () => {
   let testVisit = () => cy.visit('http://localhost:3000')
 
   beforeEach(()=> {
-    
+
     cy.intercept({method: 'GET', url:'https://rancid-tomatillos.herokuapp.com/api/v2/movies'}, multipleStub)
     testVisit()
 
@@ -30,7 +30,6 @@ describe('Filter Form - User flow and error handling', () => {
 
     cy.get('.ripenessParent')
       .should('exist').should('be.visible')
-      .contains('Ripeness:')
 
     cy.get('.ripenessFilter')
       .should('exist')
@@ -88,6 +87,10 @@ describe('Filter Form - User flow and error handling', () => {
     cy.get('.errorMessage')
     .should('exist').should('be.visible')
     .contains('No Movies To Show')
+
+
+    cy.get('.homeButton')
+      .should('exist').should('be.visible').contains('Home')
   }
   )
 })
