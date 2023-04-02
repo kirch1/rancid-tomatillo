@@ -2,7 +2,15 @@
 
 ## Abstract:
 [//]: <>
+
+  Streaming media services have grown in popularity over the past years, but when it is time for many of us to pick a movie to see in the theatres the tools available seem strangely stuck in the past! 
   
+  Expired Avocados is a web application that seeks to amend that issue, offering to its users a streamlined and clear experience when they are looking to scout the cinematic landscape ahead of them prior to their next movie night. Upon arriving on our webpage, users are shown an unfiltered list of all movies in our database. They can browse by scrolling through the movie tiles, or by defining search terms on the bottom of the page such as searching through movie titles or specifying a movie rating range that they would like. 
+
+Once a user has made their selection, they can seek further details regarding the film by clicking the movie poster itself. On this next screen, a user will be presented with myriad details about the film, as well as a randomly selected movie trailer for each title.
+  
+  The familiar and smooth style that this application presents to our users will make their previous methods toast!
+ 
 ## Installation Instructions:
 [//]: <>
 
@@ -29,8 +37,8 @@ Screenshot of homepage:
 
 <img width="1680" alt="Screenshot 2023-04-02 at 4 12 08 PM" src="https://user-images.githubusercontent.com/117242156/229381780-96ba39fb-f644-49e6-9fa6-a44fa1fbf04b.png">
 
-
-
+Screenshot of detailed moview view:
+![Screenshot 2023-04-02 at 4 25 02 PM](https://user-images.githubusercontent.com/117242156/229382386-16d9ba30-a910-456a-877a-ee52988f9f63.png)
 Application is deployed live at: [Expired Avocados on Vercel](https://expired-avocados.vercel.app/)
 
 
