@@ -20,7 +20,8 @@ Alternatively, the app is deployed via Vercel and that link is below.
 [//]: <>
 
 To run the test suite associated with the classes behind the scenes and how they interact: 
-Run 'npm test' from the terminal while within the main directory of the application ().
+
+Run 'npm run cypress' from the terminal while within the main directory of the application and select E2E Testing, and your chosen browser in the following window.
 
 ## Preview of App:
 [//]: <>
@@ -30,7 +31,7 @@ Screenshot of homepage:
 
 
 
-Application is deployed live at: [Deployment via Vercel](https://expired-avocados.vercel.app/)
+Application is deployed live at: [Expired Avocados on Vercel](https://expired-avocados.vercel.app/)
 
 
 ## Context:
@@ -51,6 +52,7 @@ This project was assigned in the first week of module 3 for Front End students a
 - Learn how to test React components & asynchronous JS using Cypress
 - Create a multi-page UX using Router
 - Implement a controlled form
+- Practice async GitHub workflow
 - Deploy final result
 
 ## Future Feature Ideas:
