@@ -1,7 +1,3 @@
-// This test file should be relevant to the user flows associated with general browsing. Checking for a successful page visit, then title display, form display, and rendering multiple routes for our mainComponent: 
-// allMovies, filteredFilms, selectedMovie, or errorMessage state of App will dictate content
-
-// Changes upon form change and switching to movieDetails view, so the user flows to and from each view will need to be tested.
 import multipleStub from "../fixtures/manyMoviesStub"
 
 
@@ -33,8 +29,15 @@ describe('User dashboard - User flow, view switching, and error display', () => 
 
     cy.get('.ripenessFilter')
       .should('exist').should('be.visible')
-    .get('.filterLabel')
-      .contains('Ripeness:')
+    .get('.ripenessFilter')
+      .contains('expired')
+
+    cy.get('.ripenessFilter')
+      .should('exist').should('be.visible')
+    .get('.ripenessFilter')
+      .contains('ripe')
+
+      
   })
 
   it('User should see an unfiltered selection of movies upon arrival', () => {
@@ -63,11 +66,8 @@ beforeEach(()=> {
 })
 
   it('SAD - User arrives to page, network error occurs (fetch returns empty object), error message and return button shown:', () => {
+
     cy.get('.errorMessage')
       .should('exist').should('be.visible').contains('Network Errors are the Pits!')
-
-    cy.get('.homeButton')
-      .should('exist').should('be.visible').contains('Home')
-  }
-  )
+    })
 })

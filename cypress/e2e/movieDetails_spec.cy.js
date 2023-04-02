@@ -1,5 +1,3 @@
-// This test file should revolve around the detailed movie view that appears when a user interacts with a movie tile in the dashboard view. Upon switching to this view, the user should have the film browser and search forms hidden from view and the center of the page should be replaced with a section that contains the full data available for the specific film selected.
-
 import multipleStub from "../fixtures/manyMoviesStub"
 import singleStub from "../fixtures/singleMovieStub"
 
