@@ -73,8 +73,21 @@ describe('Movie Details View - User flow and error handling', () => {
     .click()
       .get('.detailCover')
         .should('exist').should('be.visible')
-      // .get()
-
+      .get('.dataMovieTitle')
+        .should('exist').should('be.visible').contains('Black Adam')
+      .get('.tagline')
+        .should('exist').should('be.visible').contains('a hero')
+      .get('.dataTitle')
+        .should('exist').should('be.visible').should('have.length', 5)
+      .get('.dataPoint')
+        .should('exist').should('be.visible').should('have.length', 4)
+      .get('.meterDiv')
+        .should('exist').should('be.visible')
+        .get('.current-value').contains('Ripeness: 4')
+      .get('.overviewText')
+        .should('exist').should('be.visible').contains('—and imprisoned just as quickly—')
+      .get('.trailer')
+        .should('exist').should('be.visible')
   })
 
   it('When a user clicks a movie tile, the URL is updated to reflect the unique ID of that title', () => {
@@ -83,6 +96,13 @@ describe('Movie Details View - User flow and error handling', () => {
 
     cy.url()
       .should('include', '/movies/505642')
-  }
-  )
+  })
+
+  it('SAD - If a user navigates to a URL that does our app cannot resolve to a movie, the user is presented with a Network Error message', ()=> {
+
+    cy.visit('http://localhost:3000/movies/4362701')
+
+    cy.get('.errorMessage')
+      .should('exist').should('be.visible').contains('Network Errors are the Pits!')
+  })
 })
