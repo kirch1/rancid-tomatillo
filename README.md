@@ -33,12 +33,9 @@ Run 'npm run cypress' from the terminal while within the main directory of the a
 
 ## Preview of App:
 [//]: <>
-Screenshot of homepage:
+Live demo:
+![](demo.gif)
 
-<img width="1680" alt="Screenshot 2023-04-02 at 4 12 08 PM" src="https://user-images.githubusercontent.com/117242156/229381780-96ba39fb-f644-49e6-9fa6-a44fa1fbf04b.png">
-
-Screenshot of detailed moview view:
-![Screenshot 2023-04-02 at 4 25 02 PM](https://user-images.githubusercontent.com/117242156/229382386-16d9ba30-a910-456a-877a-ee52988f9f63.png)
 Application is deployed live at: [Expired Avocados on Vercel](https://expired-avocados.vercel.app/)
 
 
